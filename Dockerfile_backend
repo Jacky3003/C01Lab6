@@ -1,0 +1,23 @@
+# Use official MongoDB image as base
+FROM mongo:latest
+
+# Set the working directory for backend
+WORKDIR /app/quirknotes/backend
+
+# Copy backend package files
+COPY quirknotes/backend/package*.json ./
+
+# Install backend dependencies
+RUN npm install
+
+# Copy backend source code
+COPY quirknotes/backend ./
+
+# Build backend
+RUN npm run build
+
+# Expose the port the app runs on, 4000 or 27017
+EXPOSE 4000
+
+# Command to run the MongoDB server when the container starts
+CMD ["mongod", "--dbpath=data/db"]
