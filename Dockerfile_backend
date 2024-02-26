@@ -20,7 +20,7 @@ RUN npm run dev
 FROM mongo:latest
 
 # Expose the port the app runs on
-EXPOSE 27017
+EXPOSE 4000
 
 # Command to run the MongoDB server when the container starts
 CMD ["mongod", "--dbpath=data/db"]
