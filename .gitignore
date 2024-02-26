@@ -8,3 +8,6 @@ node_modules/
 
 # misc
 .DS_Store
+
+# Secret for lab 6
+secrets
