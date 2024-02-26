@@ -13,14 +13,5 @@ RUN npm install
 # Copy backend source code
 COPY quirknotes/backend ./
 
-# Build backend
-RUN npm run dev
-
-# Use a base image that includes MongoDB
-FROM mongo:latest
-
-# Expose the port the app runs on
-EXPOSE 4000
-
-# Command to run the MongoDB server when the container starts
-CMD ["mongod", "--dbpath=data/db"]
+# Command to start nginx and serve frontend
+CMD ["npm", "run", "dev"]
